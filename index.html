@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brooks Communication Consulting</title>
+  <meta name="description" content="Speech therapy, consulting, and English language coaching for non-native learners. Opening doors to communication." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brown:      #7A3B1E;
+      --brown-dark: #5C2A12;
+      --gold:       #C49A3C;
+      --gold-light: #E8C97A;
+      --cream:      #FDF6EC;
+      --cream-dark: #F5EAD6;
+      --text:       #2E2218;
+      --text-light: #6B5744;
+      --white:      #FFFFFF;
+      --radius:     8px;
+      --shadow:     0 4px 24px rgba(90,42,18,.10);
+      --transition: .25s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--cream);
+    }
+
+    img { max-width: 100%; display: block; }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.25;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── Nav ───────────────────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(90,42,18,.08);
+    }
+
+    .nav__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav__logo img {
+      height: 52px;
+      width: auto;
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      transition: color var(--transition);
+    }
+
+    .nav__links a:hover { color: var(--brown); }
+
+    .nav__cta {
+      background: var(--brown);
+      color: var(--white) !important;
+      padding: .45rem 1.1rem;
+      border-radius: var(--radius);
+      transition: background var(--transition) !important;
+    }
+
+    .nav__cta:hover { background: var(--brown-dark) !important; color: var(--white) !important; }
+
+    /* Hamburger */
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav__toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--brown);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ─── Hero ──────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+      padding: 5rem 1.5rem 4rem;
+    }
+
+    .hero__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .hero__text { flex: 1; }
+
+    .hero__eyebrow {
+      display: inline-block;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .75rem;
+    }
+
+    .hero__title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--brown-dark);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero__subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .75rem 1.75rem;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: .95rem;
+      letter-spacing: .02em;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn--primary {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .btn--primary:hover { background: var(--brown-dark); }
+
+    .btn--outline {
+      border: 2px solid var(--brown);
+      color: var(--brown);
+      background: transparent;
+    }
+
+    .btn--outline:hover { background: var(--brown); color: var(--white); }
+
+    .hero__photo {
+      flex-shrink: 0;
+      width: 320px;
+    }
+
+    .hero__photo img {
+      width: 100%;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      box-shadow: var(--shadow);
+      border: 6px solid var(--white);
+      outline: 3px solid var(--gold-light);
+      outline-offset: 4px;
+    }
+
+    /* ─── Section base ──────────────────────────────────────────── */
+    .section {
+      padding: 5rem 1.5rem;
+    }
+
+    .section--alt { background: var(--white); }
+
+    .section__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section__label {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .5rem;
+    }
+
+    .section__title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--brown-dark);
+      margin-bottom: 1rem;
+    }
+
+    .section__lead {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* ─── Services ──────────────────────────────────────────────── */
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .service-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      border-top: 4px solid var(--gold);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(90,42,18,.14);
+    }
+
+    .service-card__icon {
+      font-size: 2rem;
+      margin-bottom: .75rem;
+    }
+
+    .service-card__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--brown-dark);
+      margin-bottom: .6rem;
+    }
+
+    .service-card__body {
+      font-size: .95rem;
+      color: var(--text-light);
+    }
+
+    /* ─── About ─────────────────────────────────────────────────── */
+    .about__inner {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .about__text { flex: 1; }
+
+    .about__text p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .about__text p:last-child { margin-bottom: 0; }
+
+    .about__photo {
+      flex-shrink: 0;
+      width: 280px;
+    }
+
+    .about__photo img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    /* ─── Testimonials ──────────────────────────────────────────── */
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--gold-light);
+      position: absolute;
+      top: .5rem;
+      left: 1rem;
+    }
+
+    .testimonial-card__body {
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 1rem;
+      padding-top: 1rem;
+    }
+
+    .testimonial-card__name {
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--brown);
+    }
+
+    /* ─── Contact ───────────────────────────────────────────────── */
+    .contact__inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact__info h3 {
+      font-size: 1.1rem;
+      color: var(--brown-dark);
+      margin-bottom: .4rem;
+    }
+
+    .contact__info p {
+      color: var(--text-light);
+      font-size: .95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact__info a {
+      color: var(--brown);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Form */
+    .form { display: flex; flex-direction: column; gap: 1.1rem; }
+
+    .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+
+    .form__group { display: flex; flex-direction: column; gap: .4rem; }
+
+    .form__label {
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .form__input,
+    .form__select,
+    .form__textarea {
+      padding: .7rem 1rem;
+      border: 1.5px solid #D9C5B2;
+      border-radius: var(--radius);
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      width: 100%;
+      appearance: none;
+    }
+
+    .form__input:focus,
+    .form__select:focus,
+    .form__textarea:focus {
+      outline: none;
+      border-color: var(--brown);
+      box-shadow: 0 0 0 3px rgba(122,59,30,.12);
+    }
+
+    .form__textarea { resize: vertical; min-height: 130px; }
+
+    .form__select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A3B1E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form__submit {
+      align-self: flex-start;
+      border: none;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .form__notice {
+      font-size: .85rem;
+      color: var(--text-light);
+    }
+
+    /* Success/Error states */
+    .form__status {
+      display: none;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: .95rem;
+    }
+
+    .form__status--success {
+      background: #EBF5E8;
+      color: #2E6B28;
+      border: 1.5px solid #A8D9A0;
+    }
+
+    .form__status--error {
+      background: #FBE9E9;
+      color: #8B1A1A;
+      border: 1.5px solid #F0A0A0;
+    }
+
+    /* ─── Footer ────────────────────────────────────────────────── */
+    .footer {
+      background: var(--brown-dark);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      font-size: .9rem;
+    }
+
+    .footer img {
+      height: 44px;
+      width: auto;
+      margin: 0 auto .75rem;
+      filter: brightness(0) invert(1) opacity(.7);
+    }
+
+    .footer a { color: var(--gold-light); }
+
+    /* ─── Divider ───────────────────────────────────────────────── */
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── Responsive ────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero__inner { flex-direction: column-reverse; text-align: center; gap: 2.5rem; }
+      .hero__photo { width: 220px; }
+      .hero__subtitle { margin-left: auto; margin-right: auto; }
+      .hero__actions { justify-content: center; }
+
+      .about__inner { flex-direction: column; gap: 2rem; }
+      .about__photo { width: 100%; max-width: 320px; margin: 0 auto; }
+
+      .contact__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    @media (max-width: 640px) {
+      .nav__links { display: none; flex-direction: column; background: var(--white); position: absolute; top: 68px; left: 0; right: 0; padding: 1rem 1.5rem 1.5rem; box-shadow: var(--shadow); gap: .75rem; }
+      .nav__links.open { display: flex; }
+      .nav__toggle { display: flex; }
+
+      .form__row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Navigation ─────────────────────────────────────────────── -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav__inner">
+    <a class="nav__logo" href="#top" aria-label="Brooks Communication Consulting home">
+      <img src="logo.png" alt="Brooks Communication Consulting" />
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact" class="nav__cta">Contact Me</a></li>
+    </ul>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ─── Hero ───────────────────────────────────────────────────── -->
+<section class="hero" id="top">
+  <div class="hero__inner">
+    <div class="hero__text">
+      <span class="hero__eyebrow">Speech Therapy &amp; Communication</span>
+      <h1 class="hero__title">Opening Doors<br/>to Communication</h1>
+      <p class="hero__subtitle">
+        Personalized speech therapy, professional consulting, and English language coaching
+        to help you find your voice and communicate with confidence.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--primary">Get in Touch</a>
+        <a href="#services" class="btn btn--outline">Our Services</a>
+      </div>
+    </div>
+    <div class="hero__photo">
+      <img src="headshot.png" alt="Carla Brooks, Speech-Language Pathologist" />
+    </div>
+  </div>
+</section>
+
+<!-- ─── Services ──────────────────────────────────────────────── -->
+<section class="section section--alt" id="services">
+  <div class="section__inner">
+    <p class="section__label">What I Offer</p>
+    <h2 class="section__title">Services</h2>
+    <div class="divider"></div>
+    <p class="section__lead">
+      Every person's communication journey is unique. I offer a range of services
+      tailored to meet you where you are.
+    </p>
+    <div class="services__grid">
+
+      <div class="service-card">
+        <div class="service-card__icon" aria-hidden="true">🗣️</div>
+        <h3 class="service-card__title">Speech Therapy</h3>
+        <p class="service-card__body">
+          Evidence-based speech-language pathology services for children and adults.
+          Addressing articulation, fluency, voice, and language disorders in a
+          supportive, individualized setting.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon" aria-hidden="true">💼</div>
+        <h3 class="service-card__title">Consulting</h3>
+        <p class="service-card__body">
+          Professional communication consulting for organizations, schools, and
+          healthcare providers. Expert guidance on communication strategies,
+          program development, and team training.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon" aria-hidden="true">🌍</div>
+        <h3 class="service-card__title">English for Non-Native Speakers</h3>
+        <p class="service-card__body">
+          Specialized coaching to improve spoken English clarity, pronunciation,
+          and professional communication for non-native English speakers —
+          in the workplace and everyday life.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── About ─────────────────────────────────────────────────── -->
+<section class="section" id="about">
+  <div class="section__inner">
+    <div class="about__inner">
+      <div class="about__text">
+        <p class="section__label">About</p>
+        <h2 class="section__title">Meet Carla Brooks</h2>
+        <div class="divider"></div>
+        <p>
+          I'm a licensed speech-language pathologist with a passion for helping
+          people communicate more effectively. Whether you're working through a speech
+          or language challenge, navigating a new language, or looking to enhance your
+          professional communication skills, I'm here to help.
+        </p>
+        <p>
+          My approach is warm, collaborative, and evidence-based. I believe every
+          person deserves to be heard and understood — and that the right support
+          can open doors you never thought possible.
+        </p>
+        <p>
+          I provide services to clients of all ages and backgrounds, both in-person
+          and virtually.
+        </p>
+        <a href="#contact" class="btn btn--primary" style="margin-top:1.25rem;">Schedule a Free Consultation</a>
+      </div>
+      <div class="about__photo">
+        <img src="headshot.png" alt="Carla Brooks" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Testimonials ───────────────────────────────────────────── -->
+<section class="section section--alt" id="testimonials">
+  <div class="section__inner">
+    <p class="section__label">Kind Words</p>
+    <h2 class="section__title">What Clients &amp; Colleagues Say</h2>
+    <div class="divider"></div>
+    <div class="testimonials__grid">
+
+      <div class="testimonial-card">
+        <p class="testimonial-card__body">
+          I came to Carla for helping me on my accent after being referred by a doctor and I felt so happy for this decision.
+          At our first meeting, she went over my background, listened to my own statement and was able to identify the areas
+          we could focus with a very patient way. In the next almost 6 months, she identified the area we would like to focus
+          for each class and made adjustment after actual class. Very responsible and efficient in improving my accent.
+          She would be the one if you are looking for a speech expert to enhance communication skills or improving your accent.
+        </p>
+        <p class="testimonial-card__name">M.R. &mdash; San Jose, CA</p>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-card__body">
+          As a case manager for adults and kids with disabilities, I seek services to meet my clients' needs. I am fortunate
+          to be able to hire &amp; work with the best clinicians in our community. Carla is definitely part of my &lsquo;dream team.&rsquo;
+          Social communication is her game. The keen insight that Carla brings to the table helps us get to the end goal quicker.
+          She is a great listener, quick-study and an excellent teacher, clinician and collaborator. She is the first person who
+          comes to my mind when I have a client who needs help with social communication.
+        </p>
+        <p class="testimonial-card__name">Rebecca Whitmire &mdash; CEO, Whitmire &amp; Associates LLC, Seattle, WA</p>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-card__body">
+          Carla has gained considerable expertise in understanding the unique learning needs that blindness can cause in the
+          development of language skills. She worked with many children and their families who were struggling with learning to
+          communicate and made a significant impact on their abilities. She is able to cull out what might be different and make
+          practical solutions that can be carried out at home and school.
+        </p>
+        <p class="testimonial-card__name">Scott Truax &mdash; Family Connect Program Manager, American Foundation for the Blind</p>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-card__body">
+          You have made such a huge difference in the lives of so many as a mentor, coach and clinician. You have a beautiful
+          ability of seeing the whole child at their level.
+        </p>
+        <p class="testimonial-card__name">Sarah F. &mdash; Speech/Language Pathologist</p>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-card__body">
+          Carla has been a friend and professional colleague for nearly 30 years. She has a remarkable depth and breadth of
+          knowledge about autism spectrum disorder and how it affects individuals throughout the lifespan, from toddlers to adults.
+          Her diagnostic and treatment skills are superb, and any family fortunate enough to work with her will find a truly
+          dedicated, compassionate clinician on their side.
+        </p>
+        <p class="testimonial-card__name">Anita Wright &mdash; Speech/Language Pathologist, Seattle Children&rsquo;s Autism Center</p>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-card__body">
+          It has been a joy having you work with our daughter. You have been a fantastic resource for our family and so many others.
+          Thank you for your lifelong commitment to this community.
+        </p>
+        <p class="testimonial-card__name">Mother of a child with Asperger Syndrome</p>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-card__body">
+          Thank you so much for all you&rsquo;ve done for our family. Your knowledge has been invaluable to us. We have seen a lot
+          of positive improvements in our daughter since you started working with her &mdash; and your work has given us confidence
+          that she can, and will, have a happy and fulfilling life, and that we can give her the support she needs.
+        </p>
+        <p class="testimonial-card__name">Father of a child with Asperger Syndrome</p>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-card__body">
+          Thank you so much for the things you helped me do. Thank you for helping me to talk, communicate and use pictures.
+          Thank you for helping me come a long way.
+        </p>
+        <p class="testimonial-card__name">Client seen as a preschooler &mdash; now a full-time student at the University of Washington</p>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-card__body">
+          Thank you for your guidance when times were hard.
+        </p>
+        <p class="testimonial-card__name">Parents of a client seen as a preschooler &mdash; now attending college</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Contact ───────────────────────────────────────────────── -->
+<section class="section" id="contact">
+  <div class="section__inner">
+    <div class="contact__inner">
+
+      <div class="contact__info">
+        <p class="section__label">Let's Connect</p>
+        <h2 class="section__title">Get in Touch</h2>
+        <div class="divider"></div>
+        <h3>Ready to take the first step?</h3>
+        <p>
+          Fill out the form and I'll get back to you within one business day.
+          I offer a free 15-minute phone consultation to discuss your needs.
+        </p>
+        <h3>Prefer email?</h3>
+        <p>
+          Reach me directly at<br/>
+          <!-- Replace with real email -->
+          <a href="mailto:carla@brookscommunicationconsulting.com">carla@brookscommunicationconsulting.com</a>
+        </p>
+        <h3>Location</h3>
+        <p>
+          Serving clients in-person and virtually.<br/>
+          <!-- Add your location if desired -->
+        </p>
+      </div>
+
+      <div>
+        <!--
+          CONTACT FORM — powered by Formspree (free tier)
+          Steps to activate:
+            1. Create a free account at https://formspree.io
+            2. Create a new form and copy your unique endpoint
+            3. Replace "YOUR_FORMSPREE_ID" in the action URL below
+               e.g. action="https://formspree.io/f/abcdefgh"
+        -->
+        <form
+          class="form"
+          id="contactForm"
+          action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+          method="POST"
+          novalidate
+        >
+          <div class="form__row">
+            <div class="form__group">
+              <label class="form__label" for="firstName">First Name <span aria-hidden="true">*</span></label>
+              <input class="form__input" type="text" id="firstName" name="firstName" required autocomplete="given-name" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="lastName">Last Name <span aria-hidden="true">*</span></label>
+              <input class="form__input" type="text" id="lastName" name="lastName" required autocomplete="family-name" />
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="email">Email Address <span aria-hidden="true">*</span></label>
+            <input class="form__input" type="email" id="email" name="email" required autocomplete="email" />
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="phone">Phone Number</label>
+            <input class="form__input" type="tel" id="phone" name="phone" autocomplete="tel" />
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="service">I'm interested in</label>
+            <select class="form__select" id="service" name="service">
+              <option value="">— Select a service —</option>
+              <option value="speech-therapy">Speech Therapy</option>
+              <option value="consulting">Consulting</option>
+              <option value="english-coaching">English for Non-Native Speakers</option>
+              <option value="other">Other / Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="message">Message <span aria-hidden="true">*</span></label>
+            <textarea class="form__textarea" id="message" name="message" required placeholder="Tell me a bit about what you're looking for…"></textarea>
+          </div>
+
+          <div class="form__status form__status--success" id="formSuccess" role="alert">
+            Thank you! Your message has been sent. I'll be in touch soon.
+          </div>
+          <div class="form__status form__status--error" id="formError" role="alert">
+            Something went wrong. Please try again or email me directly.
+          </div>
+
+          <!-- Honeypot spam prevention -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <button type="submit" class="btn btn--primary form__submit" id="formSubmit">
+            Send Message
+          </button>
+          <p class="form__notice">* Required fields. Your information is never shared.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─────────────────────────────────────────────────── -->
+<footer class="footer">
+  <img src="logo.png" alt="Brooks Communication Consulting" />
+  <p>&copy; <span id="year"></span> Brooks Communication Consulting. All rights reserved.</p>
+  <p style="margin-top:.4rem; font-size:.8rem;">
+    Licensed Speech-Language Pathologist &nbsp;|&nbsp; Opening Doors to Communication
+  </p>
+</footer>
+
+<!-- ─── Scripts ────────────────────────────────────────────────── -->
+<script>
+  // Year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  // Close nav on link click (mobile)
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Contact form — async Formspree submission
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('formSubmit');
+  const successMsg = document.getElementById('formSuccess');
+  const errorMsg = document.getElementById('formError');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
+
+    // Basic client-side validation
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
+      });
+
+      if (res.ok) {
+        successMsg.style.display = 'block';
+        form.reset();
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    } catch (_) {
+      errorMsg.style.display = 'block';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+</script>
+
+</body>
+</html>

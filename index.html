@@ -68,9 +68,24 @@
       height: 68px;
     }
 
-    .nav__logo img {
-      height: 52px;
-      width: auto;
+    .nav__logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      line-height: 1.1;
+      letter-spacing: .01em;
+    }
+
+    .nav__logo span {
+      display: block;
+      font-family: 'Lato', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: .15rem;
     }
 
     .nav__links {
@@ -458,11 +473,24 @@
       font-size: .9rem;
     }
 
-    .footer img {
-      height: 44px;
-      width: auto;
-      margin: 0 auto .75rem;
-      filter: brightness(0) invert(1) opacity(.7);
+    .footer__brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: .25rem;
+      letter-spacing: .02em;
+    }
+
+    .footer__brand span {
+      display: block;
+      font-family: 'Lato', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-top: .1rem;
     }
 
     .footer a { color: var(--gold-light); }
@@ -504,7 +532,8 @@
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav__inner">
     <a class="nav__logo" href="#top" aria-label="Brooks Communication Consulting home">
-      <img src="logo.png" alt="Brooks Communication Consulting" />
+      Brooks
+      <span>Communication Consulting</span>
     </a>
     <ul class="nav__links" id="navLinks">
       <li><a href="#services">Services</a></li>
@@ -678,7 +707,7 @@
 
 <!-- ─── Footer ─────────────────────────────────────────────────── -->
 <footer class="footer">
-  <img src="logo.png" alt="Brooks Communication Consulting" />
+  <p class="footer__brand">Brooks<span>Communication Consulting</span></p>
   <p>&copy; <span id="year"></span> Brooks Communication Consulting. All rights reserved.</p>
   <p style="margin-top:.4rem; font-size:.8rem;">
     Licensed Speech-Language Pathologist &nbsp;|&nbsp; Opening Doors to Communication
